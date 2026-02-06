@@ -59,6 +59,7 @@ export default function Skills() {
         },
       }
     );
+  }, []);
 
     // Brilho pulsante contínuo
     gsap.to(titleRef.current, {
@@ -74,23 +75,7 @@ export default function Skills() {
        ANIMAÇÃO DAS BARRAS
     ========================== */
 
-    barsRef.current.forEach((bar, index) => {
-      gsap.fromTo(
-        bar,
-        { width: "0%" },
-        {
-          width: `${skills[index].level}%`,
-          duration: 1.6,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 70%",
-            once: true,
-          },
-        }
-      );
-    });
-  }, []);
+    
 
   return (
     <section
@@ -127,17 +112,8 @@ export default function Skills() {
                     </span>
                   </div>
                   <span className="text-sm text-gray-400">
-                    {skill.level}%
+                    
                   </span>
-                </div>
-
-                <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
-                  <div
-                    ref={(el) => (barsRef.current[index] = el)}
-                    className="h-full rounded-full
-                               bg-gradient-to-r from-purple-500 to-fuchsia-500"
-                    style={{ width: "0%" }}
-                  />
                 </div>
               </div>
             );
@@ -150,15 +126,6 @@ export default function Skills() {
                 <img src={excelIcon} className="w-8 h-8" alt="Excel" />
                 <span className="text-lg font-semibold text-white">Excel</span>
               </div>
-              <span className="text-sm text-gray-400">97%</span>
-            </div>
-
-            <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
-              <div
-                className="h-full rounded-full bg-gradient-to-r
-                           from-purple-500 to-fuchsia-500"
-                style={{ width: "97%" }}
-              />
             </div>
           </div>
 
@@ -171,19 +138,10 @@ export default function Skills() {
                   Power BI
                 </span>
               </div>
-              <span className="text-sm text-gray-400">96%</span>
-            </div>
-
-            <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
-              <div
-                className="h-full rounded-full bg-gradient-to-r
-                           from-purple-500 to-fuchsia-500"
-                style={{ width: "96%" }}
-              />
             </div>
           </div>
         </div>
       </div>
     </section>
   );
-}
+ } 
